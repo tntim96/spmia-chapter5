@@ -65,7 +65,8 @@ public class LicenseService {
         }
     }
 
-    @HystrixCommand(//fallbackMethod = "buildFallbackLicenseList",
+    @HystrixCommand(
+            fallbackMethod = "buildFallbackLicenseList",
             threadPoolKey = "licenseByOrgThreadPool",
             threadPoolProperties =
                     {@HystrixProperty(name = "coreSize",value="30"),
