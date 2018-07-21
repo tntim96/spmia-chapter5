@@ -4,10 +4,12 @@ services:
      image:   johncarnell/tmx-eurekasvr:chapter5
      ports:
          - "8761:8761"
+         - "15000:15000"
   configserver:
       image: johncarnell/tmx-confsvr:chapter5
       ports:
          - "8888:8888"
+         - "15001:15001"
       environment:
          EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
          EUREKASERVER_PORT: "8761"
@@ -25,6 +27,7 @@ services:
       ports:
         - "8080:8080"
         - "8090:8090"
+        - "15002:15002"
       environment:
         PROFILE: "default"
         SERVER_PORT: "8080"
@@ -38,6 +41,7 @@ services:
       image: johncarnell/tmx-organization-service:chapter5
       ports:
         - "8085:8085"
+        - "15003:15003"
       environment:
         PROFILE: "default"
         SERVER_PORT: "8085"
